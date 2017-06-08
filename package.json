@@ -1,0 +1,27 @@
+{
+  "name": "node-fundamental",
+  "version": "1.0.0",
+  "description": "Simple node application",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LetCodie/node-fundamental.git"
+  },
+  "keywords": [
+    "node",
+    "sample"
+  ],
+  "author": "Radin Reth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LetCodie/node-fundamental/issues"
+  },
+  "homepage": "https://github.com/LetCodie/node-fundamental#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}
