@@ -45,4 +45,29 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.get('/edit/:id', function(req, res) {
+  let query = { _id: req.params.id };
+
+  Article.findById(query, function(err, article) {
+    res.render('articles/edit', {
+      article: article
+    });
+  });
+});
+
+router.post('/:id', function(req, res) {
+  let query = { _id: req.params.id };
+
+  Article.findById(req.params.id, function(err, article) {
+    if(err) console.log(err);
+
+    article.title = req.body.title;
+    article.body = req.body.body;
+
+    article.save();
+    
+    res.redirect('/articles');
+  })
+});
+
 module.exports = router;
