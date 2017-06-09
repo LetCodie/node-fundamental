@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+// Load router
+const articles = require('./routes/articles')
 
 const app = express();
 
@@ -24,21 +28,17 @@ let Article = require('./models/article');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+// Body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use('/articles', articles);
 
 // routes
 app.get('/', function(req, res) {
   res.render('home');
-});
-
-app.get('/articles', function(req, res) {
-  Article.find(function(err, articles) {
-    if(err) return console.error(err);
-
-    res.render('articles', {
-      articles: articles
-    });
-  });
 });
 
 app.listen(3000, function() {

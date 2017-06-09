@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>{{article.title}}</h3>
+        <p>{{article.body}}</p>
+        <p>
+          <a href="/articles/edit/{{article._id}}" class="btn btn-primary" role="button">Edit</a>
+          <a href="#" class="btn btn-danger" role="button" data-id="{{article._id}}" id="remove-item">Delete</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
