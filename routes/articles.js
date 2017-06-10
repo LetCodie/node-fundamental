@@ -65,9 +65,18 @@ router.post('/:id', function(req, res) {
     article.body = req.body.body;
 
     article.save();
-    
+
     res.redirect('/articles');
   })
+});
+
+router.delete('/:id', function(req, res) {
+  let query = {_id: req.params.id};
+  Article.remove(query, function(err) {
+    if( err ) console.err(err);
+
+    res.send('success');
+  });
 });
 
 module.exports = router;
